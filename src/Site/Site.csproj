@@ -6,28 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="PowerArgs" />
-    <None Remove="Statik.Mvc" />
-    <None Remove="Statik.Files" />
-    <None Remove="Controllers\" />
-    <None Remove="Resources\" />
-    <None Remove="Resources\Views\" />
-    <None Remove="Resources\wwwroot\" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PowerArgs" Version="4.0.0" />
     <PackageReference Include="Statik.Mvc" Version="0.14.0" />
     <PackageReference Include="Statik.Files" Version="0.14.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Resources\Views\" />
-    <Folder Include="Resources\wwwroot\" />
+    <EmbeddedResource Include="Resources\**\*" />
   </ItemGroup>
 </Project>

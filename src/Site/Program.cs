@@ -24,7 +24,8 @@ namespace Site
                 {
                     services.Configure<MvcRazorRuntimeCompilationOptions>(options => {
                         options.FileProviders.Clear();
-                        options.FileProviders.Add(new PhysicalFileProvider("/Users/paul.knopf/git/electric-rose-events/src/Site/Resources"));
+                        options.FileProviders.Add(new Statik.Embedded.EmbeddedFileProvider(typeof(Program).Assembly, "Site.Resources"));
+                        //options.FileProviders.Add(new PhysicalFileProvider("/Users/paul.knopf/git/electric-rose-events/src/Site/Resources"));
                     });
                 });
 
@@ -53,7 +54,8 @@ namespace Site
 
         private static void RegisterResources()
         {
-            _webBuilder.RegisterFileProvider(new PhysicalFileProvider("/Users/paul.knopf/git/electric-rose-events/src/Site/Resources/wwwroot"));
+            //_webBuilder.RegisterFileProvider(new PhysicalFileProvider("/Users/paul.knopf/git/electric-rose-events/src/Site/Resources/wwwroot"));
+            _webBuilder.RegisterFileProvider(new Statik.Embedded.EmbeddedFileProvider(typeof(Program).Assembly, "Site.Resources.wwwroot"));
             var staticDirectory = Path.Combine(_contentDirectory, "static");
             if (Directory.Exists(staticDirectory))
             {
