@@ -110,16 +110,19 @@
                     <h2 class="qt-section-title" data-100p-top="opacity:0;" data-70p-top="opacity:1;">BOOKING<i class="deco"></i></h2>
                     <div class="qt-booking-form">
                         <div id="form" class="row">
-                            <form class="col s12" method="post" action="email_sender.php">
-                                <input type="hidden" name="antispam" value="x123">
+                            <form id="contact-form" class="col s12" method="post" action="https://api.staticforms.xyz/submit">
+                                <input type="hidden" name="accessKey" value="f01bdd3a-368f-40f4-841a-cd1c1d2e7809">
+                                <input type="hidden" name="subject" value="Booking - Electric Rose Events" />
+                                <input type="hidden" name="redirectTo" value="https://electricrose.events/?success=true">
+
                                 <h4 class="center-align">Get in touch!</h4>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input name="first_name" id="first_name" type="text" class="validate">
+                                        <input name="$first_name" id="first_name" type="text" class="validate">
                                         <label for="first_name">First Name</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input name="last_name" id="last_name" type="text" class="validate">
+                                        <input name="$last_name" id="last_name" type="text" class="validate">
                                         <label for="last_name">Last Name</label>
                                     </div>
                                 </div>
@@ -135,13 +138,6 @@
                                         <label for="message">Message</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input name="privacy" type="checkbox" id="privacy" value="1" />
-                                        <label for="privacy">I red and accept the <a href="#" target="_blank">privacy terms</a>.</label>
-                                    </div>
-                                </div>
-
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <p>
@@ -196,6 +192,15 @@
 
     <!-- MAIN JAVASCRIPT FILE ================================ -->
     <script src="js/qt-main.js"></script>
+
+    <script type="text/javascript">
+        jQuery(function(){
+            url = new URL(window.location.href);
+            if (url.searchParams.has('success')) {
+                alert("Your message has been sent!");
+            }
+        });
+    </script>
 
 </body>
 </html>
